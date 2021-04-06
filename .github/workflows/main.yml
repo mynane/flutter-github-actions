@@ -30,7 +30,7 @@ jobs:
         uses: subosito/flutter-action@v1.1.1
         with:
           channel: "stable"
-          flutter-version: "1.13.0"
+          flutter-version: "1.13.x"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       # 下载项目依赖
