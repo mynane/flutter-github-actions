@@ -23,12 +23,16 @@ jobs:
         uses: actions/setup-java@v1.3.0
         with:
           java-version: "12.x"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       # 建立 Flutter 环境
       - name: Flutter action
         uses: subosito/flutter-action@v1.1.1
         with:
           channel: "stable"
           flutter-version: "1.12.x"
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       # 下载项目依赖
       - run: flutter pub get
       # 执行测试
@@ -41,3 +45,5 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/release/*.apk"
           token: ${{ secrets.GITHUBRELEASETOKEN }}
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
